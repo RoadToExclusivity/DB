@@ -59,6 +59,12 @@
             this.patientsTableAdapter = new Lab2.Lab1DataSetTableAdapters.PatientsTableAdapter();
             this.receptionTableAdapter = new Lab2.Lab1DataSetTableAdapters.ReceptionTableAdapter();
             this.receptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridRec = new System.Windows.Forms.DataGridView();
+            this.кодВрачаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодБольногоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаПриемаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.времяПриемаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.платныйПриемDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nav)).BeginInit();
             this.nav.SuspendLayout();
@@ -66,13 +72,17 @@
             this.mnu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lab1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridRec)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
             // 
+            this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(64, 44);
+            this.grid.Location = new System.Drawing.Point(81, 54);
+            this.grid.MultiSelect = false;
             this.grid.Name = "grid";
+            this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid.Size = new System.Drawing.Size(300, 220);
             this.grid.TabIndex = 1;
             this.grid.SelectionChanged += new System.EventHandler(this.grid_SelectionChanged);
@@ -199,6 +209,7 @@
             this.nav.Name = "nav";
             this.nav.PositionItem = this.bindingNavigatorPositionItem;
             this.nav.Size = new System.Drawing.Size(839, 25);
+            this.nav.Stretch = true;
             this.nav.TabIndex = 0;
             this.nav.Text = "bindingNavigator1";
             // 
@@ -230,21 +241,21 @@
             // врачиToolStripMenuItem
             // 
             this.врачиToolStripMenuItem.Name = "врачиToolStripMenuItem";
-            this.врачиToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.врачиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.врачиToolStripMenuItem.Text = "Врачи";
             this.врачиToolStripMenuItem.Click += new System.EventHandler(this.врачиToolStripMenuItem_Click);
             // 
             // больныеToolStripMenuItem
             // 
             this.больныеToolStripMenuItem.Name = "больныеToolStripMenuItem";
-            this.больныеToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.больныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.больныеToolStripMenuItem.Text = "Больные";
             this.больныеToolStripMenuItem.Click += new System.EventHandler(this.больныеToolStripMenuItem_Click);
             // 
             // посещенияToolStripMenuItem
             // 
             this.посещенияToolStripMenuItem.Name = "посещенияToolStripMenuItem";
-            this.посещенияToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.посещенияToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.посещенияToolStripMenuItem.Text = "Посещения";
             this.посещенияToolStripMenuItem.Click += new System.EventHandler(this.посещенияToolStripMenuItem_Click);
             // 
@@ -260,15 +271,16 @@
             // поВрачамToolStripMenuItem
             // 
             this.поВрачамToolStripMenuItem.Name = "поВрачамToolStripMenuItem";
-            this.поВрачамToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.поВрачамToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.поВрачамToolStripMenuItem.Text = "По врачам";
             this.поВрачамToolStripMenuItem.Click += new System.EventHandler(this.поВрачамToolStripMenuItem_Click);
             // 
             // поПацентамToolStripMenuItem
             // 
             this.поПацентамToolStripMenuItem.Name = "поПацентамToolStripMenuItem";
-            this.поПацентамToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.поПацентамToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.поПацентамToolStripMenuItem.Text = "По пацентам";
+            this.поПацентамToolStripMenuItem.Click += new System.EventHandler(this.поПацентамToolStripMenuItem_Click);
             // 
             // lab1DataSet
             // 
@@ -301,11 +313,66 @@
             this.receptionBindingSource.DataMember = "Reception";
             this.receptionBindingSource.DataSource = this.lab1DataSet;
             // 
+            // gridRec
+            // 
+            this.gridRec.AutoGenerateColumns = false;
+            this.gridRec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridRec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridRec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодВрачаDataGridViewTextBoxColumn,
+            this.кодБольногоDataGridViewTextBoxColumn,
+            this.датаПриемаDataGridViewTextBoxColumn,
+            this.времяПриемаDataGridViewTextBoxColumn,
+            this.платныйПриемDataGridViewCheckBoxColumn});
+            this.gridRec.DataSource = this.receptionBindingSource;
+            this.gridRec.Location = new System.Drawing.Point(474, 106);
+            this.gridRec.Name = "gridRec";
+            this.gridRec.ReadOnly = true;
+            this.gridRec.Size = new System.Drawing.Size(240, 150);
+            this.gridRec.TabIndex = 3;
+            this.gridRec.Visible = false;
+            // 
+            // кодВрачаDataGridViewTextBoxColumn
+            // 
+            this.кодВрачаDataGridViewTextBoxColumn.DataPropertyName = "Код врача";
+            this.кодВрачаDataGridViewTextBoxColumn.HeaderText = "Код врача";
+            this.кодВрачаDataGridViewTextBoxColumn.Name = "кодВрачаDataGridViewTextBoxColumn";
+            this.кодВрачаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // кодБольногоDataGridViewTextBoxColumn
+            // 
+            this.кодБольногоDataGridViewTextBoxColumn.DataPropertyName = "Код больного";
+            this.кодБольногоDataGridViewTextBoxColumn.HeaderText = "Код больного";
+            this.кодБольногоDataGridViewTextBoxColumn.Name = "кодБольногоDataGridViewTextBoxColumn";
+            this.кодБольногоDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаПриемаDataGridViewTextBoxColumn
+            // 
+            this.датаПриемаDataGridViewTextBoxColumn.DataPropertyName = "Дата приема";
+            this.датаПриемаDataGridViewTextBoxColumn.HeaderText = "Дата приема";
+            this.датаПриемаDataGridViewTextBoxColumn.Name = "датаПриемаDataGridViewTextBoxColumn";
+            this.датаПриемаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // времяПриемаDataGridViewTextBoxColumn
+            // 
+            this.времяПриемаDataGridViewTextBoxColumn.DataPropertyName = "Время приема";
+            this.времяПриемаDataGridViewTextBoxColumn.HeaderText = "Время приема";
+            this.времяПриемаDataGridViewTextBoxColumn.Name = "времяПриемаDataGridViewTextBoxColumn";
+            this.времяПриемаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // платныйПриемDataGridViewCheckBoxColumn
+            // 
+            this.платныйПриемDataGridViewCheckBoxColumn.DataPropertyName = "Платный прием";
+            this.платныйПриемDataGridViewCheckBoxColumn.HeaderText = "Платный прием";
+            this.платныйПриемDataGridViewCheckBoxColumn.Name = "платныйПриемDataGridViewCheckBoxColumn";
+            this.платныйПриемDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 431);
+            this.Controls.Add(this.gridRec);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.nav);
             this.Controls.Add(this.mnu);
@@ -323,6 +390,7 @@
             this.mnu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lab1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridRec)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,6 +427,12 @@
         private System.Windows.Forms.ToolStripMenuItem больныеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem посещенияToolStripMenuItem;
         private System.Windows.Forms.BindingSource receptionBindingSource;
+        private System.Windows.Forms.DataGridView gridRec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодБольногоDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаПриемаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn времяПриемаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn платныйПриемDataGridViewCheckBoxColumn;
 
     }
 }

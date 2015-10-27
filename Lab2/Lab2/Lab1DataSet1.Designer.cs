@@ -30,9 +30,9 @@ namespace Lab2 {
         
         private ReceptionDataTable tableReception;
         
-        private global::System.Data.DataRelation relationБольныеПрием;
-        
         private global::System.Data.DataRelation relationВрачиПрием;
+        
+        private global::System.Data.DataRelation relationБольныеПрием;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -246,8 +246,8 @@ namespace Lab2 {
                     this.tableReception.InitVars();
                 }
             }
-            this.relationБольныеПрием = this.Relations["БольныеПрием"];
             this.relationВрачиПрием = this.Relations["ВрачиПрием"];
+            this.relationБольныеПрием = this.Relations["БольныеПрием"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -264,14 +264,14 @@ namespace Lab2 {
             base.Tables.Add(this.tablePatients);
             this.tableReception = new ReceptionDataTable();
             base.Tables.Add(this.tableReception);
-            this.relationБольныеПрием = new global::System.Data.DataRelation("БольныеПрием", new global::System.Data.DataColumn[] {
-                        this.tablePatients.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableReception.Код_больногоColumn}, false);
-            this.Relations.Add(this.relationБольныеПрием);
             this.relationВрачиПрием = new global::System.Data.DataRelation("ВрачиПрием", new global::System.Data.DataColumn[] {
                         this.tableDoctors.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableReception.Код_врачаColumn}, false);
             this.Relations.Add(this.relationВрачиПрием);
+            this.relationБольныеПрием = new global::System.Data.DataRelation("БольныеПрием", new global::System.Data.DataColumn[] {
+                        this.tablePatients.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableReception.Код_больногоColumn}, false);
+            this.Relations.Add(this.relationБольныеПрием);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -544,7 +544,7 @@ namespace Lab2 {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
                 this.columnКод.AutoIncrementSeed = -1;
-                this.columnКод.AutoIncrementStep = 1;
+                this.columnКод.AutoIncrementStep = -1;
                 this.columnКод.AllowDBNull = false;
                 this.columnКод.Unique = true;
                 this.columnФамилия.MaxLength = 255;
@@ -878,7 +878,7 @@ namespace Lab2 {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
                 this.columnКод.AutoIncrementSeed = -1;
-                this.columnКод.AutoIncrementStep = 1;
+                this.columnКод.AutoIncrementStep = -1;
                 this.columnКод.AllowDBNull = false;
                 this.columnКод.Unique = true;
                 this.columnФамилия.MaxLength = 255;
@@ -1745,23 +1745,23 @@ namespace Lab2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PatientsRow PatientsRow {
-                get {
-                    return ((PatientsRow)(this.GetParentRow(this.Table.ParentRelations["БольныеПрием"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["БольныеПрием"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DoctorsRow DoctorsRow {
                 get {
                     return ((DoctorsRow)(this.GetParentRow(this.Table.ParentRelations["ВрачиПрием"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["ВрачиПрием"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PatientsRow PatientsRow {
+                get {
+                    return ((PatientsRow)(this.GetParentRow(this.Table.ParentRelations["БольныеПрием"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["БольныеПрием"]);
                 }
             }
             
