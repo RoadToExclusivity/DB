@@ -18,6 +18,13 @@ namespace Lab2
         private bool isNeedRecUpd;
         private bool isDoctorUpd;
 
+        private void SetGridDefault()
+        {
+            grid.AllowUserToAddRows = true;
+            grid.AllowUserToDeleteRows = true;
+            grid.ReadOnly = false;
+        }
+
         public frm()
         {
             InitializeComponent();
@@ -67,29 +74,17 @@ namespace Lab2
             gridRec.Height = gridHeight;
         }
 
-        private void поВрачамToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            isNeedRecUpd = true;
-            isDoctorUpd = true;
-
-            isFullClientSize = false;
-            bindingSource.DataSource = lab1DataSet.Doctors;
-            grid.DataSource = bindingSource;
-            grid.ReadOnly = true;
-
-            gridRec.Visible = true;
-            this.OnResize(e);
-        }
-
         private void врачиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isNeedRecUpd = false;
             isFullClientSize = true;
+            SetGridDefault();
 
             gridRec.Visible = false;
             bindingSource.DataSource = lab1DataSet.Doctors;
+            bindingSource.AllowNew = true;
             grid.DataSource = bindingSource;
-            grid.ReadOnly = false;
+            grid.Columns[0].Visible = false;
 
             this.OnResize(e);
         }
@@ -97,16 +92,15 @@ namespace Lab2
         private void больныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isNeedRecUpd = false;
-            isFullClientSize = true;
+            isFullClientSize = true; 
+            SetGridDefault();
 
             gridRec.Visible = false;
             bindingSource.DataSource = lab1DataSet.Patients;
-            grid.DataSource = bindingSource;
-            grid.ReadOnly = false;
+            bindingSource.AllowNew = true;
 
-            this.Validate();
-            this.bindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(lab1DataSet);
+            grid.DataSource = bindingSource;
+            grid.Columns[0].Visible = false;
 
             this.OnResize(e);
         }
@@ -115,15 +109,13 @@ namespace Lab2
         {
             isNeedRecUpd = false;
             isFullClientSize = true;
+            SetGridDefault();
 
             gridRec.Visible = false;
             bindingSource.DataSource = lab1DataSet.Reception;
-            grid.DataSource = bindingSource;
-            grid.ReadOnly = false;
+            bindingSource.AllowNew = true;
 
-            this.Validate();
-            this.bindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(lab1DataSet);
+            grid.DataSource = bindingSource;
 
             this.OnResize(e);
         }
@@ -141,25 +133,62 @@ namespace Lab2
                 var row = rows[0];
                 int selRowIndex = (int)row.Cells[0].Value;
                 DataTable cloneTable = lab1DataSet.Reception.Clone();
-                if (selRowIndex >= 0 && selRowIndex < grid.RowCount)
+                cloneTable.Columns[0].Caption = "Фамилия врача";
+                cloneTable.Columns[1].Caption = "Фамилия больного";
+                if (selRowIndex >= 0 && selRowIndex <= grid.RowCount)
                 {
-                    DataRow[] patients;
+                    DataRow[] data;
                     if (isDoctorUpd)
                     {
-                        patients = lab1DataSet.Doctors.FindByКод(selRowIndex).GetChildRows("ВрачиПрием");
+                        data = lab1DataSet.Doctors.FindByКод(selRowIndex).GetChildRows("ВрачиПрием");
                     }
                     else
                     {
-                        patients = lab1DataSet.Patients.FindByКод(selRowIndex).GetChildRows("БольныеПрием");
+                        data = lab1DataSet.Patients.FindByКод(selRowIndex).GetChildRows("БольныеПрием");
                     }
-                    
-                    foreach (DataRow cloneRow in patients)
+
+                    foreach (DataRow cloneRow in data)
                     {
+                        string time = (Convert.ToDateTime(cloneRow["Время приема"])).ToString("hh:mm");
+
+                        if (isDoctorUpd)
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+
+                        cloneRow["Время приема"] = time; 
                         cloneTable.ImportRow(cloneRow);
                     }
                 }
                 gridRec.DataSource = cloneTable;
             }
+        }
+
+        private void поВрачамToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isNeedRecUpd = true;
+            isDoctorUpd = true;
+            isFullClientSize = false;
+
+            grid.AllowUserToAddRows = false;
+            grid.AllowUserToDeleteRows = false;
+
+            grid.ReadOnly = true;
+            bindingSource.DataSource = lab1DataSet.Doctors;
+            bindingSource.AllowNew = false;
+            grid.DataSource = bindingSource;
+            
+            grid.Columns[0].Visible = false;
+
+            gridRec.Visible = true;
+            gridRec.Columns[0].Visible = false;
+            gridRec.Columns[1].Visible = true;
+
+            this.OnResize(e);
         }
 
         private void поПацентамToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,11 +197,19 @@ namespace Lab2
             isDoctorUpd = false;
             isFullClientSize = false;
 
+            grid.AllowUserToAddRows = false;
+            grid.AllowUserToDeleteRows = false;
+            bindingSource.AllowNew = false;
+
             bindingSource.DataSource = lab1DataSet.Patients;
             grid.DataSource = bindingSource;
             grid.ReadOnly = true;
+            grid.Columns[0].Visible = false;
 
             gridRec.Visible = true;
+            gridRec.Columns[0].Visible = true;
+            gridRec.Columns[1].Visible = false;
+
             this.OnResize(e);
         }
     }

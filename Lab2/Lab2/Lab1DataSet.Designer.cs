@@ -544,7 +544,6 @@ namespace Lab2 {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
                 this.columnКод.AutoIncrementSeed = -1;
-                this.columnКод.AutoIncrementStep = 1;
                 this.columnКод.AllowDBNull = false;
                 this.columnКод.Unique = true;
                 this.columnФамилия.MaxLength = 255;
@@ -878,7 +877,6 @@ namespace Lab2 {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
                 this.columnКод.AutoIncrementSeed = -1;
-                this.columnКод.AutoIncrementStep = 1;
                 this.columnКод.AllowDBNull = false;
                 this.columnКод.Unique = true;
                 this.columnФамилия.MaxLength = 255;
@@ -1138,7 +1136,7 @@ namespace Lab2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReceptionRow AddReceptionRow(DoctorsRow parentDoctorsRowByВрачиПрием, PatientsRow parentPatientsRowByБольныеПрием, System.DateTime Дата_приема, System.DateTime Время_приема, bool Платный_прием) {
+            public ReceptionRow AddReceptionRow(DoctorsRow parentDoctorsRowByВрачиПрием, PatientsRow parentPatientsRowByБольныеПрием, System.DateTime Дата_приема, string Время_приема, bool Платный_прием) {
                 ReceptionRow rowReceptionRow = ((ReceptionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1198,7 +1196,7 @@ namespace Lab2 {
                 base.Columns.Add(this.columnКод_больного);
                 this.columnДата_приема = new global::System.Data.DataColumn("Дата приема", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnДата_приема);
-                this.columnВремя_приема = new global::System.Data.DataColumn("Время приема", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnВремя_приема = new global::System.Data.DataColumn("Время приема", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnВремя_приема);
                 this.columnПлатный_прием = new global::System.Data.DataColumn("Платный прием", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПлатный_прием);
@@ -1713,10 +1711,10 @@ namespace Lab2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Время_приема {
+            public string Время_приема {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableReception.Время_приемаColumn]));
+                        return ((string)(this[this.tableReception.Время_приемаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Время приема\' в таблице \'Reception\' равно DBNull.", e);

@@ -241,21 +241,21 @@
             // врачиToolStripMenuItem
             // 
             this.врачиToolStripMenuItem.Name = "врачиToolStripMenuItem";
-            this.врачиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.врачиToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.врачиToolStripMenuItem.Text = "Врачи";
             this.врачиToolStripMenuItem.Click += new System.EventHandler(this.врачиToolStripMenuItem_Click);
             // 
             // больныеToolStripMenuItem
             // 
             this.больныеToolStripMenuItem.Name = "больныеToolStripMenuItem";
-            this.больныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.больныеToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.больныеToolStripMenuItem.Text = "Больные";
             this.больныеToolStripMenuItem.Click += new System.EventHandler(this.больныеToolStripMenuItem_Click);
             // 
             // посещенияToolStripMenuItem
             // 
             this.посещенияToolStripMenuItem.Name = "посещенияToolStripMenuItem";
-            this.посещенияToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.посещенияToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.посещенияToolStripMenuItem.Text = "Посещения";
             this.посещенияToolStripMenuItem.Click += new System.EventHandler(this.посещенияToolStripMenuItem_Click);
             // 
@@ -271,14 +271,14 @@
             // поВрачамToolStripMenuItem
             // 
             this.поВрачамToolStripMenuItem.Name = "поВрачамToolStripMenuItem";
-            this.поВрачамToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.поВрачамToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.поВрачамToolStripMenuItem.Text = "По врачам";
             this.поВрачамToolStripMenuItem.Click += new System.EventHandler(this.поВрачамToolStripMenuItem_Click);
             // 
             // поПацентамToolStripMenuItem
             // 
             this.поПацентамToolStripMenuItem.Name = "поПацентамToolStripMenuItem";
-            this.поПацентамToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.поПацентамToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.поПацентамToolStripMenuItem.Text = "По пацентам";
             this.поПацентамToolStripMenuItem.Click += new System.EventHandler(this.поПацентамToolStripMenuItem_Click);
             // 
@@ -315,6 +315,8 @@
             // 
             // gridRec
             // 
+            this.gridRec.AllowUserToAddRows = false;
+            this.gridRec.AllowUserToDeleteRows = false;
             this.gridRec.AutoGenerateColumns = false;
             this.gridRec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridRec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

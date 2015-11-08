@@ -74,8 +74,8 @@
     </None>
     <None Include="Lab1DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Lab1DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Lab1DataSet2.Designer.cs</LastGenOutput>
     </None>
     <None Include="Lab1DataSet.xss">
       <DependentUpon>Lab1DataSet.xsd</DependentUpon>

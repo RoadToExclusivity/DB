@@ -223,10 +223,10 @@
   <xs:element name="Lab1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Lab1DataSet" msprop:Generator_UserDSName="Lab1DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Doctors" msprop:Generator_TableClassName="DoctorsDataTable" msprop:Generator_TableVarName="tableDoctors" msprop:Generator_RowChangedName="DoctorsRowChanged" msprop:Generator_TablePropName="Doctors" msprop:Generator_RowDeletingName="DoctorsRowDeleting" msprop:Generator_RowChangingName="DoctorsRowChanging" msprop:Generator_RowEvHandlerName="DoctorsRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctorsRowDeleted" msprop:Generator_RowClassName="DoctorsRow" msprop:Generator_UserTableName="Doctors" msprop:Generator_RowEvArgName="DoctorsRowChangeEvent">
+        <xs:element name="Doctors" msprop:Generator_TableClassName="DoctorsDataTable" msprop:Generator_TableVarName="tableDoctors" msprop:Generator_TablePropName="Doctors" msprop:Generator_RowDeletingName="DoctorsRowDeleting" msprop:Generator_RowChangingName="DoctorsRowChanging" msprop:Generator_RowEvHandlerName="DoctorsRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctorsRowDeleted" msprop:Generator_UserTableName="Doctors" msprop:Generator_RowChangedName="DoctorsRowChanged" msprop:Generator_RowEvArgName="DoctorsRowChangeEvent" msprop:Generator_RowClassName="DoctorsRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Код" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnКод" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_UserColumnName="Код" type="xs:int" />
+              <xs:element name="Код" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msprop:Generator_ColumnVarNameInTable="columnКод" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_UserColumnName="Код" type="xs:int" />
               <xs:element name="Фамилия" msprop:Generator_ColumnVarNameInTable="columnФамилия" msprop:Generator_ColumnPropNameInRow="Фамилия" msprop:Generator_ColumnPropNameInTable="ФамилияColumn" msprop:Generator_UserColumnName="Фамилия" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -252,10 +252,10 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Patients" msprop:Generator_TableClassName="PatientsDataTable" msprop:Generator_TableVarName="tablePatients" msprop:Generator_RowChangedName="PatientsRowChanged" msprop:Generator_TablePropName="Patients" msprop:Generator_RowDeletingName="PatientsRowDeleting" msprop:Generator_RowChangingName="PatientsRowChanging" msprop:Generator_RowEvHandlerName="PatientsRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientsRowDeleted" msprop:Generator_RowClassName="PatientsRow" msprop:Generator_UserTableName="Patients" msprop:Generator_RowEvArgName="PatientsRowChangeEvent">
+        <xs:element name="Patients" msprop:Generator_TableClassName="PatientsDataTable" msprop:Generator_TableVarName="tablePatients" msprop:Generator_TablePropName="Patients" msprop:Generator_RowDeletingName="PatientsRowDeleting" msprop:Generator_RowChangingName="PatientsRowChanging" msprop:Generator_RowEvHandlerName="PatientsRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientsRowDeleted" msprop:Generator_UserTableName="Patients" msprop:Generator_RowChangedName="PatientsRowChanged" msprop:Generator_RowEvArgName="PatientsRowChangeEvent" msprop:Generator_RowClassName="PatientsRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Код" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnКод" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_UserColumnName="Код" type="xs:int" />
+              <xs:element name="Код" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msprop:Generator_ColumnVarNameInTable="columnКод" msprop:Generator_ColumnPropNameInRow="Код" msprop:Generator_ColumnPropNameInTable="КодColumn" msprop:Generator_UserColumnName="Код" type="xs:int" />
               <xs:element name="Фамилия" msprop:Generator_ColumnVarNameInTable="columnФамилия" msprop:Generator_ColumnPropNameInRow="Фамилия" msprop:Generator_ColumnPropNameInTable="ФамилияColumn" msprop:Generator_UserColumnName="Фамилия" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -288,13 +288,13 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Reception" msprop:Generator_TableClassName="ReceptionDataTable" msprop:Generator_TableVarName="tableReception" msprop:Generator_RowChangedName="ReceptionRowChanged" msprop:Generator_TablePropName="Reception" msprop:Generator_RowDeletingName="ReceptionRowDeleting" msprop:Generator_RowChangingName="ReceptionRowChanging" msprop:Generator_RowEvHandlerName="ReceptionRowChangeEventHandler" msprop:Generator_RowDeletedName="ReceptionRowDeleted" msprop:Generator_RowClassName="ReceptionRow" msprop:Generator_UserTableName="Reception" msprop:Generator_RowEvArgName="ReceptionRowChangeEvent">
+        <xs:element name="Reception" msprop:Generator_TableClassName="ReceptionDataTable" msprop:Generator_TableVarName="tableReception" msprop:Generator_TablePropName="Reception" msprop:Generator_RowDeletingName="ReceptionRowDeleting" msprop:Generator_RowChangingName="ReceptionRowChanging" msprop:Generator_RowEvHandlerName="ReceptionRowChangeEventHandler" msprop:Generator_RowDeletedName="ReceptionRowDeleted" msprop:Generator_UserTableName="Reception" msprop:Generator_RowChangedName="ReceptionRowChanged" msprop:Generator_RowEvArgName="ReceptionRowChangeEvent" msprop:Generator_RowClassName="ReceptionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Код_x0020_врача" msprop:Generator_ColumnVarNameInTable="columnКод_врача" msprop:Generator_ColumnPropNameInRow="Код_врача" msprop:Generator_ColumnPropNameInTable="Код_врачаColumn" msprop:Generator_UserColumnName="Код врача" type="xs:int" />
               <xs:element name="Код_x0020_больного" msprop:Generator_ColumnVarNameInTable="columnКод_больного" msprop:Generator_ColumnPropNameInRow="Код_больного" msprop:Generator_ColumnPropNameInTable="Код_больногоColumn" msprop:Generator_UserColumnName="Код больного" type="xs:int" />
               <xs:element name="Дата_x0020_приема" msprop:Generator_ColumnVarNameInTable="columnДата_приема" msprop:Generator_ColumnPropNameInRow="Дата_приема" msprop:Generator_ColumnPropNameInTable="Дата_приемаColumn" msprop:Generator_UserColumnName="Дата приема" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Время_x0020_приема" msprop:Generator_ColumnVarNameInTable="columnВремя_приема" msprop:Generator_ColumnPropNameInRow="Время_приема" msprop:Generator_ColumnPropNameInTable="Время_приемаColumn" msprop:Generator_UserColumnName="Время приема" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Время_x0020_приема" msprop:Generator_ColumnVarNameInTable="columnВремя_приема" msprop:Generator_ColumnPropNameInRow="Время_приема" msprop:Generator_ColumnPropNameInTable="Время_приемаColumn" msprop:Generator_UserColumnName="Время приема" type="xs:string" minOccurs="0" />
               <xs:element name="Платный_x0020_прием" msprop:Generator_ColumnVarNameInTable="columnПлатный_прием" msprop:Generator_ColumnPropNameInRow="Платный_прием" msprop:Generator_ColumnPropNameInTable="Платный_приемColumn" msprop:Generator_UserColumnName="Платный прием" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -317,8 +317,8 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="БольныеПрием" msdata:parent="Patients" msdata:child="Reception" msdata:parentkey="Код" msdata:childkey="Код_x0020_больного" msprop:Generator_UserChildTable="Reception" msprop:Generator_ChildPropName="GetReceptionRows" msprop:Generator_UserRelationName="БольныеПрием" msprop:Generator_RelationVarName="relationБольныеПрием" msprop:Generator_UserParentTable="Patients" msprop:Generator_ParentPropName="PatientsRow" />
-      <msdata:Relationship name="ВрачиПрием" msdata:parent="Doctors" msdata:child="Reception" msdata:parentkey="Код" msdata:childkey="Код_x0020_врача" msprop:Generator_UserChildTable="Reception" msprop:Generator_ChildPropName="GetReceptionRows" msprop:Generator_UserRelationName="ВрачиПрием" msprop:Generator_RelationVarName="relationВрачиПрием" msprop:Generator_UserParentTable="Doctors" msprop:Generator_ParentPropName="DoctorsRow" />
+      <msdata:Relationship name="БольныеПрием" msdata:parent="Patients" msdata:child="Reception" msdata:parentkey="Код" msdata:childkey="Код_x0020_больного" msprop:Generator_UserChildTable="Reception" msprop:Generator_ChildPropName="GetReceptionRows" msprop:Generator_UserRelationName="БольныеПрием" msprop:Generator_ParentPropName="PatientsRow" msprop:Generator_RelationVarName="relationБольныеПрием" msprop:Generator_UserParentTable="Patients" />
+      <msdata:Relationship name="ВрачиПрием" msdata:parent="Doctors" msdata:child="Reception" msdata:parentkey="Код" msdata:childkey="Код_x0020_врача" msprop:Generator_UserChildTable="Reception" msprop:Generator_ChildPropName="GetReceptionRows" msprop:Generator_UserRelationName="ВрачиПрием" msprop:Generator_ParentPropName="DoctorsRow" msprop:Generator_RelationVarName="relationВрачиПрием" msprop:Generator_UserParentTable="Doctors" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
