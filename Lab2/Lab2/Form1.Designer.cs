@@ -65,6 +65,7 @@
             this.датаПриемаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.времяПриемаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.платныйПриемDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.всеПосещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nav)).BeginInit();
             this.nav.SuspendLayout();
@@ -82,6 +83,7 @@
             this.grid.Location = new System.Drawing.Point(81, 54);
             this.grid.MultiSelect = false;
             this.grid.Name = "grid";
+            this.grid.RowHeadersVisible = false;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid.Size = new System.Drawing.Size(300, 220);
             this.grid.TabIndex = 1;
@@ -201,7 +203,7 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.doctorsBindingNavigatorSaveItem});
-            this.nav.Location = new System.Drawing.Point(0, 406);
+            this.nav.Location = new System.Drawing.Point(0, 529);
             this.nav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.nav.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.nav.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -255,15 +257,16 @@
             // посещенияToolStripMenuItem
             // 
             this.посещенияToolStripMenuItem.Name = "посещенияToolStripMenuItem";
-            this.посещенияToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.посещенияToolStripMenuItem.Text = "Посещения";
+            this.посещенияToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.посещенияToolStripMenuItem.Text = "Добавить посещение";
             this.посещенияToolStripMenuItem.Click += new System.EventHandler(this.посещенияToolStripMenuItem_Click);
             // 
             // показатьДанныеToolStripMenuItem
             // 
             this.показатьДанныеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.поВрачамToolStripMenuItem,
-            this.поПацентамToolStripMenuItem});
+            this.поПацентамToolStripMenuItem,
+            this.всеПосещенияToolStripMenuItem});
             this.показатьДанныеToolStripMenuItem.Name = "показатьДанныеToolStripMenuItem";
             this.показатьДанныеToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.показатьДанныеToolStripMenuItem.Text = "Просмотреть данные";
@@ -369,11 +372,18 @@
             this.платныйПриемDataGridViewCheckBoxColumn.Name = "платныйПриемDataGridViewCheckBoxColumn";
             this.платныйПриемDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // всеПосещенияToolStripMenuItem
+            // 
+            this.всеПосещенияToolStripMenuItem.Name = "всеПосещенияToolStripMenuItem";
+            this.всеПосещенияToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.всеПосещенияToolStripMenuItem.Text = "Все посещения";
+            this.всеПосещенияToolStripMenuItem.Click += new System.EventHandler(this.всеПосещенияToolStripMenuItem_Click);
+            // 
             // frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 431);
+            this.ClientSize = new System.Drawing.Size(839, 554);
             this.Controls.Add(this.gridRec);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.nav);
@@ -435,6 +445,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn датаПриемаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn времяПриемаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn платныйПриемDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem всеПосещенияToolStripMenuItem;
 
     }
 }
