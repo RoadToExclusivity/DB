@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab2
@@ -54,7 +46,7 @@ namespace Lab2
                 this.Validate();
                 this.bindingSource.EndEdit();
                 this.receptionBindingSource.EndEdit();
-                var p = (Lab1DataSet.ReceptionDataTable)lab1DataSet.Reception.GetChanges(DataRowState.Added);
+                var p = (Lab1DataSet.DoctorsDataTable)lab1DataSet.Doctors.GetChanges(DataRowState.Added);
                 this.tableAdapterManager.UpdateAll(lab1DataSet);
             }
             catch(Exception ex)
@@ -84,19 +76,40 @@ namespace Lab2
 
         private void врачиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            nav.Enabled = true;
-            isNeedRecUpd = false;
-            isFullClientSize = true;
-            SetGridDefault();
-
-            gridRec.Visible = false;
-            bindingSource.DataSource = lab1DataSet.Doctors;
-            bindingSource.AllowNew = true;
-
-            grid.DataSource = bindingSource;
-            grid.Columns[0].Visible = false;
+            doctorsBindingNavigatorSaveItem_Click(sender, e);
+            frmAddDoctors frm = new frmAddDoctors(lab1DataSet);
+            frm.ShowDialog();
+            if (TempDataTransferer.newDoctorsDataTable != null)
+            {
+                //lab1DataSet.Reception.Clear();
+                //lab1DataSet.Reception.Merge(TempDataTransferer.newDataTable);
+                for (int i = lab1DataSet.Doctors.Rows.Count - 1; i >= 0; --i)
+                {
+                    DataRow row = lab1DataSet.Doctors.Rows[i];
+                    row.Delete();
+                }
+                lab1DataSet.Doctors.Merge(TempDataTransferer.newDoctorsDataTable);
+                //foreach (DataRow newRow in TempDataTransferer.newDataTable.Rows)
+                //{
+                //    lab1DataSet.Reception.Rows.Add(newRow.);
+                //}
+                doctorsBindingNavigatorSaveItem_Click(sender, e);
+            }
 
             this.OnResize(e);
+            //nav.Enabled = true;
+            //isNeedRecUpd = false;
+            //isFullClientSize = true;
+            //SetGridDefault();
+
+            //gridRec.Visible = false;
+            //bindingSource.DataSource = lab1DataSet.Doctors;
+            //bindingSource.AllowNew = true;
+
+            //grid.DataSource = bindingSource;
+            //grid.Columns[0].Visible = false;
+
+            //this.OnResize(e);
         }
 
         private void больныеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,7 +134,7 @@ namespace Lab2
             doctorsBindingNavigatorSaveItem_Click(sender, e);
             frmAdd frm = new frmAdd(lab1DataSet);
             frm.ShowDialog();
-            if (TempDataTransferer.newDataTable != null)
+            if (TempDataTransferer.newReceptionDataTable != null)
             {
                 //lab1DataSet.Reception.Clear();
                 //lab1DataSet.Reception.Merge(TempDataTransferer.newDataTable);
@@ -130,7 +143,7 @@ namespace Lab2
                     DataRow row = lab1DataSet.Reception.Rows[i];
                     row.Delete();
                 }
-                lab1DataSet.Reception.Merge(TempDataTransferer.newDataTable);
+                lab1DataSet.Reception.Merge(TempDataTransferer.newReceptionDataTable);
                 //foreach (DataRow newRow in TempDataTransferer.newDataTable.Rows)
                 //{
                 //    lab1DataSet.Reception.Rows.Add(newRow.);

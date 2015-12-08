@@ -23,6 +23,8 @@ namespace Lab2
 
     static class TempDataTransferer
     {
-        public static Lab1DataSet.ReceptionDataTable newDataTable;
+        public static Lab1DataSet.ReceptionDataTable newReceptionDataTable;
+        public static Lab1DataSet.DoctorsDataTable newDoctorsDataTable;
+        public static Lab1DataSet.PatientsDataTable newPatientsDataTable;
     }
 }

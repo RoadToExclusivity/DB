@@ -53,27 +53,27 @@
             this.показатьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.поВрачамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.поПацентамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lab1DataSet = new Lab2.Lab1DataSet();
-            this.tableAdapterManager = new Lab2.Lab1DataSetTableAdapters.TableAdapterManager();
-            this.doctorsTableAdapter = new Lab2.Lab1DataSetTableAdapters.DoctorsTableAdapter();
-            this.patientsTableAdapter = new Lab2.Lab1DataSetTableAdapters.PatientsTableAdapter();
-            this.receptionTableAdapter = new Lab2.Lab1DataSetTableAdapters.ReceptionTableAdapter();
-            this.receptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.всеПосещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridRec = new System.Windows.Forms.DataGridView();
             this.кодВрачаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кодБольногоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаПриемаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.времяПриемаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.платныйПриемDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.всеПосещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lab1DataSet = new Lab2.Lab1DataSet();
+            this.tableAdapterManager = new Lab2.Lab1DataSetTableAdapters.TableAdapterManager();
+            this.doctorsTableAdapter = new Lab2.Lab1DataSetTableAdapters.DoctorsTableAdapter();
+            this.patientsTableAdapter = new Lab2.Lab1DataSetTableAdapters.PatientsTableAdapter();
+            this.receptionTableAdapter = new Lab2.Lab1DataSetTableAdapters.ReceptionTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nav)).BeginInit();
             this.nav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.mnu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lab1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridRec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lab1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
@@ -243,14 +243,14 @@
             // врачиToolStripMenuItem
             // 
             this.врачиToolStripMenuItem.Name = "врачиToolStripMenuItem";
-            this.врачиToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.врачиToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.врачиToolStripMenuItem.Text = "Врачи";
             this.врачиToolStripMenuItem.Click += new System.EventHandler(this.врачиToolStripMenuItem_Click);
             // 
             // больныеToolStripMenuItem
             // 
             this.больныеToolStripMenuItem.Name = "больныеToolStripMenuItem";
-            this.больныеToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.больныеToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.больныеToolStripMenuItem.Text = "Больные";
             this.больныеToolStripMenuItem.Click += new System.EventHandler(this.больныеToolStripMenuItem_Click);
             // 
@@ -274,47 +274,23 @@
             // поВрачамToolStripMenuItem
             // 
             this.поВрачамToolStripMenuItem.Name = "поВрачамToolStripMenuItem";
-            this.поВрачамToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.поВрачамToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.поВрачамToolStripMenuItem.Text = "По врачам";
             this.поВрачамToolStripMenuItem.Click += new System.EventHandler(this.поВрачамToolStripMenuItem_Click);
             // 
             // поПацентамToolStripMenuItem
             // 
             this.поПацентамToolStripMenuItem.Name = "поПацентамToolStripMenuItem";
-            this.поПацентамToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.поПацентамToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.поПацентамToolStripMenuItem.Text = "По пацентам";
             this.поПацентамToolStripMenuItem.Click += new System.EventHandler(this.поПацентамToolStripMenuItem_Click);
             // 
-            // lab1DataSet
+            // всеПосещенияToolStripMenuItem
             // 
-            this.lab1DataSet.DataSetName = "Lab1DataSet";
-            this.lab1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.DoctorsTableAdapter = null;
-            this.tableAdapterManager.PatientsTableAdapter = null;
-            this.tableAdapterManager.ReceptionTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Lab2.Lab1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // doctorsTableAdapter
-            // 
-            this.doctorsTableAdapter.ClearBeforeFill = true;
-            // 
-            // patientsTableAdapter
-            // 
-            this.patientsTableAdapter.ClearBeforeFill = true;
-            // 
-            // receptionTableAdapter
-            // 
-            this.receptionTableAdapter.ClearBeforeFill = true;
-            // 
-            // receptionBindingSource
-            // 
-            this.receptionBindingSource.DataMember = "Reception";
-            this.receptionBindingSource.DataSource = this.lab1DataSet;
+            this.всеПосещенияToolStripMenuItem.Name = "всеПосещенияToolStripMenuItem";
+            this.всеПосещенияToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.всеПосещенияToolStripMenuItem.Text = "Все посещения";
+            this.всеПосещенияToolStripMenuItem.Click += new System.EventHandler(this.всеПосещенияToolStripMenuItem_Click);
             // 
             // gridRec
             // 
@@ -372,12 +348,36 @@
             this.платныйПриемDataGridViewCheckBoxColumn.Name = "платныйПриемDataGridViewCheckBoxColumn";
             this.платныйПриемDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // всеПосещенияToolStripMenuItem
+            // receptionBindingSource
             // 
-            this.всеПосещенияToolStripMenuItem.Name = "всеПосещенияToolStripMenuItem";
-            this.всеПосещенияToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.всеПосещенияToolStripMenuItem.Text = "Все посещения";
-            this.всеПосещенияToolStripMenuItem.Click += new System.EventHandler(this.всеПосещенияToolStripMenuItem_Click);
+            this.receptionBindingSource.DataMember = "Reception";
+            this.receptionBindingSource.DataSource = this.lab1DataSet;
+            // 
+            // lab1DataSet
+            // 
+            this.lab1DataSet.DataSetName = "Lab1DataSet";
+            this.lab1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.DoctorsTableAdapter = null;
+            this.tableAdapterManager.PatientsTableAdapter = null;
+            this.tableAdapterManager.ReceptionTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Lab2.Lab1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // doctorsTableAdapter
+            // 
+            this.doctorsTableAdapter.ClearBeforeFill = true;
+            // 
+            // patientsTableAdapter
+            // 
+            this.patientsTableAdapter.ClearBeforeFill = true;
+            // 
+            // receptionTableAdapter
+            // 
+            this.receptionTableAdapter.ClearBeforeFill = true;
             // 
             // frm
             // 
@@ -400,9 +400,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.mnu.ResumeLayout(false);
             this.mnu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lab1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridRec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receptionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lab1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
