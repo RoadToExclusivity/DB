@@ -16,5 +16,11 @@ namespace CURS
         {
             InitializeComponent();
         }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdd frmAddEnrolee = new frmAdd();
+            frmAddEnrolee.ShowDialog();
+        }
     }
 }

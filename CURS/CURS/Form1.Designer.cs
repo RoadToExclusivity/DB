@@ -59,6 +59,7 @@
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
             this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
+            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
@@ -72,6 +73,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 25);
             this.Controls.Add(this.mnu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnu;
             this.MaximizeBox = false;
             this.Name = "frmEnrolees";

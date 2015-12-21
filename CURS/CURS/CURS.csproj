@@ -59,6 +59,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExam.Designer.cs">
+      <DependentUpon>AddExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSpec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSpec.Designer.cs">
+      <DependentUpon>AddSpec.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnrolleesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +90,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddExam.resx">
+      <DependentUpon>AddExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSpec.resx">
+      <DependentUpon>AddSpec.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

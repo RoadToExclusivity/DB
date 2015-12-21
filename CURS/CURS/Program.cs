@@ -19,4 +19,10 @@ namespace CURS
             Application.Run(new frmEnrolees());
         }
     }
+
+    static class Helper
+    {
+        static public System.Data.DataTable tempAddSpec = null;
+        static public System.Data.DataTable tempAddExam = null;
+    }
 }
