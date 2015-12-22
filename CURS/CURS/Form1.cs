@@ -28,5 +28,17 @@ namespace CURS
             frmSpecForEnrollee frmSpecForEnrollee = new frmSpecForEnrollee();
             frmSpecForEnrollee.ShowDialog();
         }
+
+        private void показатьПоСпециальностямToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEnrForSpec frmShowEnrollees = new frmEnrForSpec();
+            frmShowEnrollees.ShowDialog();
+        }
+
+        private void сформироватьСпискиПоступившихToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmList newList = new frmList();
+            newList.ShowDialog();
+        }
     }
 }

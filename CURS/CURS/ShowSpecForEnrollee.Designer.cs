@@ -33,21 +33,21 @@
             this.enrSpecAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter();
             this.enroleeAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeTableAdapter();
             this.gridEnrollee = new System.Windows.Forms.DataGridView();
-            this.gridSpec = new System.Windows.Forms.DataGridView();
-            this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDАбитуриентаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.отчествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enroleeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridSpec = new System.Windows.Forms.DataGridView();
+            this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter();
             this.specExamAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialityExamsTableAdapter();
             this.enrolleeExamAdapter = new CURS.EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEnrollee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSpec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSpec)).BeginInit();
             this.SuspendLayout();
             // 
             // enrolleeDataSet
@@ -86,34 +86,6 @@
             this.gridEnrollee.TabIndex = 0;
             this.gridEnrollee.SelectionChanged += new System.EventHandler(this.gridEnrollee_SelectionChanged);
             // 
-            // gridSpec
-            // 
-            this.gridSpec.AllowUserToAddRows = false;
-            this.gridSpec.AllowUserToDeleteRows = false;
-            this.gridSpec.AllowUserToOrderColumns = true;
-            this.gridSpec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridSpec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSpec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSpec,
-            this.colBalls});
-            this.gridSpec.Location = new System.Drawing.Point(0, 209);
-            this.gridSpec.Name = "gridSpec";
-            this.gridSpec.ReadOnly = true;
-            this.gridSpec.Size = new System.Drawing.Size(507, 165);
-            this.gridSpec.TabIndex = 1;
-            // 
-            // colSpec
-            // 
-            this.colSpec.HeaderText = "Специальность";
-            this.colSpec.Name = "colSpec";
-            this.colSpec.ReadOnly = true;
-            // 
-            // colBalls
-            // 
-            this.colBalls.HeaderText = "Баллы";
-            this.colBalls.Name = "colBalls";
-            this.colBalls.ReadOnly = true;
-            // 
             // iDАбитуриентаDataGridViewTextBoxColumn
             // 
             this.iDАбитуриентаDataGridViewTextBoxColumn.DataPropertyName = "ID абитуриента";
@@ -149,6 +121,35 @@
             this.enroleeBindingSource.DataMember = "Enrolee";
             this.enroleeBindingSource.DataSource = this.enrolleeDataSet;
             // 
+            // gridSpec
+            // 
+            this.gridSpec.AllowUserToAddRows = false;
+            this.gridSpec.AllowUserToDeleteRows = false;
+            this.gridSpec.AllowUserToOrderColumns = true;
+            this.gridSpec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridSpec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridSpec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSpec,
+            this.colBalls});
+            this.gridSpec.Location = new System.Drawing.Point(0, 209);
+            this.gridSpec.Name = "gridSpec";
+            this.gridSpec.ReadOnly = true;
+            this.gridSpec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridSpec.Size = new System.Drawing.Size(507, 165);
+            this.gridSpec.TabIndex = 1;
+            // 
+            // colSpec
+            // 
+            this.colSpec.HeaderText = "Специальность";
+            this.colSpec.Name = "colSpec";
+            this.colSpec.ReadOnly = true;
+            // 
+            // colBalls
+            // 
+            this.colBalls.HeaderText = "Баллы";
+            this.colBalls.Name = "colBalls";
+            this.colBalls.ReadOnly = true;
+            // 
             // specAdapter
             // 
             this.specAdapter.ClearBeforeFill = true;
@@ -175,8 +176,8 @@
             this.Load += new System.EventHandler(this.frmSpecForEnrollee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEnrollee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSpec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSpec)).EndInit();
             this.ResumeLayout(false);
 
         }

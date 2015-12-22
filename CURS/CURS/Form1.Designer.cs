@@ -32,16 +32,20 @@
             this.абитуриентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.посмотретьСпискиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.показатьПоСпециальностямToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сформироватьСпискиПоступившихToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnu
             // 
             this.mnu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.абитуриентыToolStripMenuItem});
+            this.абитуриентыToolStripMenuItem,
+            this.показатьПоСпециальностямToolStripMenuItem,
+            this.сформироватьСпискиПоступившихToolStripMenuItem});
             this.mnu.Location = new System.Drawing.Point(0, 0);
             this.mnu.Name = "mnu";
-            this.mnu.Size = new System.Drawing.Size(264, 24);
+            this.mnu.Size = new System.Drawing.Size(506, 24);
             this.mnu.TabIndex = 0;
             this.mnu.Text = "menuStrip1";
             // 
@@ -57,7 +61,7 @@
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
@@ -68,11 +72,25 @@
             this.посмотретьСпискиToolStripMenuItem.Text = "Посмотреть списки";
             this.посмотретьСпискиToolStripMenuItem.Click += new System.EventHandler(this.посмотретьСпискиToolStripMenuItem_Click);
             // 
+            // показатьПоСпециальностямToolStripMenuItem
+            // 
+            this.показатьПоСпециальностямToolStripMenuItem.Name = "показатьПоСпециальностямToolStripMenuItem";
+            this.показатьПоСпециальностямToolStripMenuItem.Size = new System.Drawing.Size(181, 20);
+            this.показатьПоСпециальностямToolStripMenuItem.Text = "Показать по специальностям";
+            this.показатьПоСпециальностямToolStripMenuItem.Click += new System.EventHandler(this.показатьПоСпециальностямToolStripMenuItem_Click);
+            // 
+            // сформироватьСпискиПоступившихToolStripMenuItem
+            // 
+            this.сформироватьСпискиПоступившихToolStripMenuItem.Name = "сформироватьСпискиПоступившихToolStripMenuItem";
+            this.сформироватьСпискиПоступившихToolStripMenuItem.Size = new System.Drawing.Size(222, 20);
+            this.сформироватьСпискиПоступившихToolStripMenuItem.Text = "Сформировать списки поступивших";
+            this.сформироватьСпискиПоступившихToolStripMenuItem.Click += new System.EventHandler(this.сформироватьСпискиПоступившихToolStripMenuItem_Click);
+            // 
             // frmEnrolees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 25);
+            this.ClientSize = new System.Drawing.Size(506, 25);
             this.Controls.Add(this.mnu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnu;
@@ -92,6 +110,8 @@
         private System.Windows.Forms.ToolStripMenuItem абитуриентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem посмотретьСпискиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem показатьПоСпециальностямToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сформироватьСпискиПоступившихToolStripMenuItem;
 
     }
 }

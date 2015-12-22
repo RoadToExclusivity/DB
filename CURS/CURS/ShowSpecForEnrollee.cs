@@ -34,6 +34,8 @@ namespace CURS
             gridSpec.Width = this.ClientSize.Width;
             gridSpec.Top = this.ClientSize.Height / 2 + 5;
             gridSpec.Height = this.ClientSize.Height / 2 - 5;
+
+            gridEnrollee_SelectionChanged(sender, e);
         }
 
         private void gridEnrollee_SelectionChanged(object sender, EventArgs e)
