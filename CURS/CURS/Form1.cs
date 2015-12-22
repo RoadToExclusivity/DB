@@ -22,5 +22,11 @@ namespace CURS
             frmAdd frmAddEnrolee = new frmAdd();
             frmAddEnrolee.ShowDialog();
         }
+
+        private void посмотретьСпискиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSpecForEnrollee frmSpecForEnrollee = new frmSpecForEnrollee();
+            frmSpecForEnrollee.ShowDialog();
+        }
     }
 }

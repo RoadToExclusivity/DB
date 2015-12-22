@@ -40,6 +40,13 @@
             this.btnExam = new System.Windows.Forms.Button();
             this.lstSpec = new System.Windows.Forms.ListBox();
             this.lstExam = new System.Windows.Forms.ListBox();
+            this.enroleeDataSet = new CURS.EnrolleesDataSet();
+            this.enroleeAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeTableAdapter();
+            this.enroleeExamAdapter = new CURS.EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter();
+            this.enroleeSpecAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter();
+            this.specAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter();
+            this.examAdapter = new CURS.EnrolleesDataSetTableAdapters.ExamsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -174,6 +181,31 @@
             this.lstExam.TabIndex = 11;
             this.lstExam.Tag = "экзамены";
             // 
+            // enroleeDataSet
+            // 
+            this.enroleeDataSet.DataSetName = "EnrolleesDataSet";
+            this.enroleeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // enroleeAdapter
+            // 
+            this.enroleeAdapter.ClearBeforeFill = true;
+            // 
+            // enroleeExamAdapter
+            // 
+            this.enroleeExamAdapter.ClearBeforeFill = true;
+            // 
+            // enroleeSpecAdapter
+            // 
+            this.enroleeSpecAdapter.ClearBeforeFill = true;
+            // 
+            // specAdapter
+            // 
+            this.specAdapter.ClearBeforeFill = true;
+            // 
+            // examAdapter
+            // 
+            this.examAdapter.ClearBeforeFill = true;
+            // 
             // frmAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +227,9 @@
             this.MaximizeBox = false;
             this.Name = "frmAdd";
             this.Text = "Добавить абитуриента";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAdd_FormClosed);
+            this.Load += new System.EventHandler(this.frmAdd_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +249,11 @@
         private System.Windows.Forms.Button btnExam;
         private System.Windows.Forms.ListBox lstSpec;
         private System.Windows.Forms.ListBox lstExam;
+        private EnrolleesDataSet enroleeDataSet;
+        private EnrolleesDataSetTableAdapters.EnroleeTableAdapter enroleeAdapter;
+        private EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter enroleeExamAdapter;
+        private EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter enroleeSpecAdapter;
+        private EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter specAdapter;
+        private EnrolleesDataSetTableAdapters.ExamsTableAdapter examAdapter;
     }
 }

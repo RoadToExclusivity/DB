@@ -31,7 +31,7 @@
             this.mnu = new System.Windows.Forms.MenuStrip();
             this.абитуриентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.посмотретьСпискиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             // 
             this.абитуриентыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
-            this.изменитьToolStripMenuItem});
+            this.посмотретьСпискиToolStripMenuItem});
             this.абитуриентыToolStripMenuItem.Name = "абитуриентыToolStripMenuItem";
             this.абитуриентыToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.абитуриентыToolStripMenuItem.Text = "Абитуриенты";
@@ -61,11 +61,12 @@
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
-            // изменитьToolStripMenuItem
+            // посмотретьСпискиToolStripMenuItem
             // 
-            this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.изменитьToolStripMenuItem.Text = "Изменить";
+            this.посмотретьСпискиToolStripMenuItem.Name = "посмотретьСпискиToolStripMenuItem";
+            this.посмотретьСпискиToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.посмотретьСпискиToolStripMenuItem.Text = "Посмотреть списки";
+            this.посмотретьСпискиToolStripMenuItem.Click += new System.EventHandler(this.посмотретьСпискиToolStripMenuItem_Click);
             // 
             // frmEnrolees
             // 
@@ -90,7 +91,7 @@
         private System.Windows.Forms.MenuStrip mnu;
         private System.Windows.Forms.ToolStripMenuItem абитуриентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem посмотретьСпискиToolStripMenuItem;
 
     }
 }

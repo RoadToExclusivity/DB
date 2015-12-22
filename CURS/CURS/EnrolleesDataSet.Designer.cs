@@ -2979,14 +2979,15 @@ namespace CURS.EnrolleesDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_абитуриента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID абитуриента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Enrolee] ([ID абитуриента], [Фамилия], [Имя], [Отчество]) VALU" +
-                "ES (@ID_абитуриента, @Фамилия, @Имя, @Отчество);\r\nSELECT [ID абитуриента], Фамил" +
-                "ия, Имя, Отчество FROM Enrolee WHERE ([ID абитуриента] = @ID_абитуриента)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO Enrolee\r\n                         (Фамилия, Имя, Отчество, [ID абитур" +
+                "иента])\r\nVALUES        (@Фамилия,@Имя,@Отчество,@ID_абитуриента);   \r\nSELECT [ID" +
+                " абитуриента], Фамилия, Имя, Отчество FROM Enrolee WHERE ([ID абитуриента] = @ID" +
+                "_абитуриента)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_абитуриента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID абитуриента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Фамилия", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Фамилия", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Имя", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Имя", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Отчество", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Отчество", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Фамилия", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Фамилия", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Имя", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Имя", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Отчество", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Отчество", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_абитуриента", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID абитуриента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Enrolee] SET [ID абитуриента] = @ID_абитуриента, [Фамилия] = @Фамилия, [Имя] = @Имя, [Отчество] = @Отчество WHERE (([ID абитуриента] = @Original_ID_абитуриента));
@@ -3095,26 +3096,26 @@ SELECT [ID абитуриента], Фамилия, Имя, Отчество FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID_абитуриента, string Фамилия, string Имя, string Отчество) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_абитуриента));
+        public virtual int Insert(string Фамилия, string Имя, string Отчество, int ID_абитуриента) {
             if ((Фамилия == null)) {
                 throw new global::System.ArgumentNullException("Фамилия");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Фамилия));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Фамилия));
             }
             if ((Имя == null)) {
                 throw new global::System.ArgumentNullException("Имя");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Имя));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Имя));
             }
             if ((Отчество == null)) {
                 throw new global::System.ArgumentNullException("Отчество");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Отчество));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Отчество));
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ID_абитуриента));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
