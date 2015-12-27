@@ -17,28 +17,40 @@ namespace CURS
             InitializeComponent();
         }
 
-        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void добавитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmAdd frmAddEnrolee = new frmAdd();
             frmAddEnrolee.ShowDialog();
         }
 
-        private void посмотретьСпискиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void показатьСписокToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSpecForEnrollee frmSpecForEnrollee = new frmSpecForEnrollee();
             frmSpecForEnrollee.Show();
         }
 
-        private void показатьПоСпециальностямToolStripMenuItem_Click(object sender, EventArgs e)
+        private void показатьСпециальностиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEnrForSpec frmShowEnrollees = new frmEnrForSpec();
             frmShowEnrollees.Show();
         }
 
-        private void сформироватьСпискиПоступившихToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сформироватьСписокПоступившихToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmList newList = new frmList();
             newList.Show();
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEdit editForm = new frmEdit();
+            editForm.ShowDialog();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRemove removeEnr = new frmRemove();
+            removeEnr.ShowDialog();
         }
     }
 }

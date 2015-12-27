@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CURS
@@ -56,7 +52,6 @@ namespace CURS
         }
 
         List<List<SortedBall>> specSorted = new List<List<SortedBall>>();
-        List<List<int>> spec = new List<List<int>>();
         List<int> rest = new List<int>();
         List<List<int>> enrBall = new List<List<int>>();
         List<bool> enrUsed = new List<bool>();
@@ -261,7 +256,16 @@ namespace CURS
                     curPrior++;
                     if (curPrior > 21)
                     {
-                        MessageBox.Show("Присутствует неоднозначный выбор абитуриентов или его нет совсем для " + resEnr.ToString() + " абитуриентов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        string message = "Нет вариантов для " + resEnr.ToString() + " абитуриентa(-ов): " + Environment.NewLine;
+                        for (int i = 0; i < enrCount; ++i)
+                        {
+                            if (!enrUsed[i])
+                            {
+                                var row = enrolleeDataSet.Enrolee.FindByID_абитуриента(i + 1);
+                                message = message + row[1].ToString() + " " + row[2].ToString() + " " + row[3].ToString() + " " + Environment.NewLine;
+                            }
+                        }
+                        MessageBox.Show(message, "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     }
                 }

@@ -52,7 +52,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(120, 197);
+            this.btnAdd.Location = new System.Drawing.Point(160, 338);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(83, 29);
             this.btnAdd.TabIndex = 0;
@@ -63,7 +63,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnClose.Location = new System.Drawing.Point(220, 197);
+            this.btnClose.Location = new System.Drawing.Point(260, 338);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(79, 29);
             this.btnClose.TabIndex = 1;
@@ -150,7 +150,7 @@
             this.btnExam.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExam.Location = new System.Drawing.Point(368, 20);
             this.btnExam.Name = "btnExam";
-            this.btnExam.Size = new System.Drawing.Size(111, 44);
+            this.btnExam.Size = new System.Drawing.Size(139, 44);
             this.btnExam.TabIndex = 9;
             this.btnExam.Text = "Выбрать экзамены";
             this.btnExam.UseVisualStyleBackColor = true;
@@ -161,10 +161,10 @@
             this.lstSpec.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstSpec.FormattingEnabled = true;
             this.lstSpec.ItemHeight = 17;
-            this.lstSpec.Location = new System.Drawing.Point(220, 79);
+            this.lstSpec.Location = new System.Drawing.Point(210, 79);
             this.lstSpec.Name = "lstSpec";
             this.lstSpec.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstSpec.Size = new System.Drawing.Size(120, 89);
+            this.lstSpec.Size = new System.Drawing.Size(139, 225);
             this.lstSpec.TabIndex = 10;
             this.lstSpec.Tag = "специальности";
             // 
@@ -177,7 +177,7 @@
             this.lstExam.MultiColumn = true;
             this.lstExam.Name = "lstExam";
             this.lstExam.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstExam.Size = new System.Drawing.Size(120, 89);
+            this.lstExam.Size = new System.Drawing.Size(139, 225);
             this.lstExam.TabIndex = 11;
             this.lstExam.Tag = "экзамены";
             // 
@@ -208,9 +208,10 @@
             // 
             // frmAdd
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 238);
+            this.ClientSize = new System.Drawing.Size(515, 379);
             this.Controls.Add(this.lstExam);
             this.Controls.Add(this.lstSpec);
             this.Controls.Add(this.btnExam);

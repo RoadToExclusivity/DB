@@ -31,11 +31,11 @@
             this.specAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter();
             this.adapterManager = new CURS.EnrolleesDataSetTableAdapters.TableAdapterManager();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrior = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.enroleeDataSet = new CURS.EnrolleesDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrior = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,31 @@
             this.grid.Name = "grid";
             this.grid.Size = new System.Drawing.Size(262, 492);
             this.grid.TabIndex = 0;
+            // 
+            // enroleeDataSet
+            // 
+            this.enroleeDataSet.DataSetName = "EnrolleesDataSet";
+            this.enroleeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(205, 511);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Добавить";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(318, 511);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Text = "Закрыть";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // colSpec
             // 
@@ -104,31 +129,6 @@
             "21"});
             this.colPrior.Name = "colPrior";
             this.colPrior.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // enroleeDataSet
-            // 
-            this.enroleeDataSet.DataSetName = "EnrolleesDataSet";
-            this.enroleeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(205, 511);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Добавить";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(318, 511);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 4;
-            this.btnClose.Text = "Закрыть";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmAddSpec
             // 
