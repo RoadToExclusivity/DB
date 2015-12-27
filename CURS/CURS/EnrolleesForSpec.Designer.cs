@@ -34,15 +34,18 @@
             this.enrolleeAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeTableAdapter();
             this.enrSpecAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter();
             this.gridSpec = new System.Windows.Forms.DataGridView();
+            this.iDСпециальностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеСпециальностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.количествоВакантныхМестDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridEnrollee = new System.Windows.Forms.DataGridView();
             this.colSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPatronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrior = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDСпециальностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.названиеСпециальностиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.количествоВакантныхМестDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBalls = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enrExamAdapter = new CURS.EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter();
+            this.specExamAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialityExamsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSpec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specialitiesBindingSource)).BeginInit();
@@ -88,6 +91,28 @@
             this.gridSpec.TabIndex = 0;
             this.gridSpec.SelectionChanged += new System.EventHandler(this.gridSpec_SelectionChanged);
             // 
+            // iDСпециальностиDataGridViewTextBoxColumn
+            // 
+            this.iDСпециальностиDataGridViewTextBoxColumn.DataPropertyName = "ID специальности";
+            this.iDСпециальностиDataGridViewTextBoxColumn.HeaderText = "ID специальности";
+            this.iDСпециальностиDataGridViewTextBoxColumn.Name = "iDСпециальностиDataGridViewTextBoxColumn";
+            this.iDСпециальностиDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDСпециальностиDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // названиеСпециальностиDataGridViewTextBoxColumn
+            // 
+            this.названиеСпециальностиDataGridViewTextBoxColumn.DataPropertyName = "Название специальности";
+            this.названиеСпециальностиDataGridViewTextBoxColumn.HeaderText = "Название специальности";
+            this.названиеСпециальностиDataGridViewTextBoxColumn.Name = "названиеСпециальностиDataGridViewTextBoxColumn";
+            this.названиеСпециальностиDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // количествоВакантныхМестDataGridViewTextBoxColumn
+            // 
+            this.количествоВакантныхМестDataGridViewTextBoxColumn.DataPropertyName = "Количество вакантных мест";
+            this.количествоВакантныхМестDataGridViewTextBoxColumn.HeaderText = "Количество вакантных мест";
+            this.количествоВакантныхМестDataGridViewTextBoxColumn.Name = "количествоВакантныхМестDataGridViewTextBoxColumn";
+            this.количествоВакантныхМестDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // specialitiesBindingSource
             // 
             this.specialitiesBindingSource.DataMember = "Specialities";
@@ -104,7 +129,8 @@
             this.colSurname,
             this.colName,
             this.colPatronymic,
-            this.colPrior});
+            this.colPrior,
+            this.colBalls});
             this.gridEnrollee.Location = new System.Drawing.Point(28, 257);
             this.gridEnrollee.Name = "gridEnrollee";
             this.gridEnrollee.ReadOnly = true;
@@ -136,27 +162,19 @@
             this.colPrior.Name = "colPrior";
             this.colPrior.ReadOnly = true;
             // 
-            // iDСпециальностиDataGridViewTextBoxColumn
+            // colBalls
             // 
-            this.iDСпециальностиDataGridViewTextBoxColumn.DataPropertyName = "ID специальности";
-            this.iDСпециальностиDataGridViewTextBoxColumn.HeaderText = "ID специальности";
-            this.iDСпециальностиDataGridViewTextBoxColumn.Name = "iDСпециальностиDataGridViewTextBoxColumn";
-            this.iDСпециальностиDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDСпециальностиDataGridViewTextBoxColumn.Visible = false;
+            this.colBalls.HeaderText = "Баллы";
+            this.colBalls.Name = "colBalls";
+            this.colBalls.ReadOnly = true;
             // 
-            // названиеСпециальностиDataGridViewTextBoxColumn
+            // enrExamAdapter
             // 
-            this.названиеСпециальностиDataGridViewTextBoxColumn.DataPropertyName = "Название специальности";
-            this.названиеСпециальностиDataGridViewTextBoxColumn.HeaderText = "Название специальности";
-            this.названиеСпециальностиDataGridViewTextBoxColumn.Name = "названиеСпециальностиDataGridViewTextBoxColumn";
-            this.названиеСпециальностиDataGridViewTextBoxColumn.ReadOnly = true;
+            this.enrExamAdapter.ClearBeforeFill = true;
             // 
-            // количествоВакантныхМестDataGridViewTextBoxColumn
+            // specExamAdapter
             // 
-            this.количествоВакантныхМестDataGridViewTextBoxColumn.DataPropertyName = "Количество вакантных мест";
-            this.количествоВакантныхМестDataGridViewTextBoxColumn.HeaderText = "Количество вакантных мест";
-            this.количествоВакантныхМестDataGridViewTextBoxColumn.Name = "количествоВакантныхМестDataGridViewTextBoxColumn";
-            this.количествоВакантныхМестDataGridViewTextBoxColumn.ReadOnly = true;
+            this.specExamAdapter.ClearBeforeFill = true;
             // 
             // frmEnrForSpec
             // 
@@ -187,12 +205,15 @@
         private System.Windows.Forms.DataGridView gridSpec;
         private System.Windows.Forms.BindingSource specialitiesBindingSource;
         private System.Windows.Forms.DataGridView gridEnrollee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDСпециальностиDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn названиеСпециальностиDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn количествоВакантныхМестDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPatronymic;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrior;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDСпециальностиDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn названиеСпециальностиDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn количествоВакантныхМестDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBalls;
+        private EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter enrExamAdapter;
+        private EnrolleesDataSetTableAdapters.SpecialityExamsTableAdapter specExamAdapter;
     }
 }

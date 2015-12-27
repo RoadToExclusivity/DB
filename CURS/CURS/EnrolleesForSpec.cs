@@ -22,6 +22,8 @@ namespace CURS
             enrolleeAdapter.Fill(enrolleeDataSet.Enrolee);
             enrSpecAdapter.Fill(enrolleeDataSet.EnroleeSpeciality);
             specAdapter.Fill(enrolleeDataSet.Specialities);
+            enrExamAdapter.Fill(enrolleeDataSet.EnrolleeExams);
+            specExamAdapter.Fill(enrolleeDataSet.SpecialityExams);
 
             gridSpec.Left = 0;
             gridSpec.Top = 0;
@@ -32,6 +34,8 @@ namespace CURS
             gridEnrollee.Top = this.ClientSize.Height / 2 + 5;
             gridEnrollee.Width = this.ClientSize.Width;
             gridEnrollee.Height = this.ClientSize.Height / 2 - 5;
+
+            gridSpec_SelectionChanged(sender, e);
         }
 
         private void gridSpec_SelectionChanged(object sender, EventArgs e)
@@ -59,6 +63,29 @@ namespace CURS
                     prior = "MAX";
                 }
                 gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[3].Value = prior;
+
+                SortedDictionary<int, int> exams = new SortedDictionary<int, int>();
+                var examRows = enrolleeDataSet.Enrolee.FindByID_абитуриента(id).GetChildRows("Enrolee_EnrolleeExams");
+                foreach (var examRow in examRows)
+                {
+                    int examID = Convert.ToInt32(examRow[1].ToString());
+                    int ball = Convert.ToInt32(examRow[2].ToString());
+
+                    exams.Add(examID, ball);
+                }
+
+                int sum = 0;
+                var specExamsRows = enrolleeDataSet.Specialities.FindByID_специальности(idSpec).GetChildRows("Specialities_SpecialityExams");
+                foreach (var specExam in specExamsRows)
+                {
+                    int examID = Convert.ToInt32(specExam[1].ToString());
+                    if (exams.ContainsKey(examID))
+                    {
+                        sum += exams[examID];
+                    }
+                }
+
+                gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[4].Value = sum.ToString();
             }
         }
     }

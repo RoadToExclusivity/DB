@@ -26,19 +26,19 @@ namespace CURS
         private void посмотретьСпискиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmSpecForEnrollee frmSpecForEnrollee = new frmSpecForEnrollee();
-            frmSpecForEnrollee.ShowDialog();
+            frmSpecForEnrollee.Show();
         }
 
         private void показатьПоСпециальностямToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEnrForSpec frmShowEnrollees = new frmEnrForSpec();
-            frmShowEnrollees.ShowDialog();
+            frmShowEnrollees.Show();
         }
 
         private void сформироватьСпискиПоступившихToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmList newList = new frmList();
-            newList.ShowDialog();
+            newList.Show();
         }
     }
 }
