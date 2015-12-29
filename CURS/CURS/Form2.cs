@@ -199,6 +199,7 @@ namespace CURS
             enroleeSpecAdapter.Fill(enroleeDataSet.EnroleeSpeciality);
             specAdapter.Fill(enroleeDataSet.Specialities);
             examAdapter.Fill(enroleeDataSet.Exams);
+            enroleeExamAdapter.Fill(enroleeDataSet.EnrolleeExams);
         }
     }
 }

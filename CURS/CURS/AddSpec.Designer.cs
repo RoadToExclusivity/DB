@@ -31,11 +31,11 @@
             this.specAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter();
             this.adapterManager = new CURS.EnrolleesDataSetTableAdapters.TableAdapterManager();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrior = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.enroleeDataSet = new CURS.EnrolleesDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.colSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrior = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,21 @@
             this.grid.Name = "grid";
             this.grid.Size = new System.Drawing.Size(262, 492);
             this.grid.TabIndex = 0;
+            this.grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellValueChanged);
+            // 
+            // colSpec
+            // 
+            this.colSpec.HeaderText = "Специальность";
+            this.colSpec.Name = "colSpec";
+            this.colSpec.ReadOnly = true;
+            // 
+            // colPrior
+            // 
+            this.colPrior.HeaderText = "Приоритет";
+            this.colPrior.Items.AddRange(new object[] {
+            "Нет"});
+            this.colPrior.Name = "colPrior";
+            this.colPrior.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // enroleeDataSet
             // 
@@ -94,42 +109,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // colSpec
-            // 
-            this.colSpec.HeaderText = "Специальность";
-            this.colSpec.Name = "colSpec";
-            this.colSpec.ReadOnly = true;
-            // 
-            // colPrior
-            // 
-            this.colPrior.HeaderText = "Приоритет";
-            this.colPrior.Items.AddRange(new object[] {
-            "Нет",
-            "MAX",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21"});
-            this.colPrior.Name = "colPrior";
-            this.colPrior.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // frmAddSpec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,7 +120,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmAddSpec";
-            this.Text = "Добавить специальности";
+            this.Text = "Выбрать специальности";
             this.Load += new System.EventHandler(this.frmAddSpec_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).EndInit();

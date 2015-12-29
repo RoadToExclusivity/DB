@@ -43,7 +43,7 @@ namespace CURS
 
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEdit editForm = new frmEdit();
+            frmGridEdit editForm = new frmGridEdit();
             editForm.ShowDialog();
         }
 

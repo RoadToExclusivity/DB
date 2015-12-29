@@ -116,7 +116,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmAddExam";
-            this.Text = "Добавить экзамены";
+            this.Text = "Выбрать экзамены";
             this.Load += new System.EventHandler(this.frmAddExam_Load);
             ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();

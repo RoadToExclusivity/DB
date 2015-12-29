@@ -24,5 +24,7 @@ namespace CURS
     {
         static public System.Data.DataTable tempAddSpec = null;
         static public System.Data.DataTable tempAddExam = null;
+
+        static public int enrID = -1;
     }
 }

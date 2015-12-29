@@ -1,6 +1,6 @@
 ﻿namespace CURS
 {
-    partial class frmRemove
+    partial class frmGridEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -29,27 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.enrolleeDataSet = new CURS.EnrolleesDataSet();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.gridEnrollee = new System.Windows.Forms.DataGridView();
             this.iDАбитуриентаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.отчествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enroleeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enrolleesDataSet = new CURS.EnrolleesDataSet();
             this.enrAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeTableAdapter();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.enrExamAdapter = new CURS.EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter();
-            this.enrSpecAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.enrolleeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEnrollee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enrolleesDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // enrolleeDataSet
+            // btnClose
             // 
-            this.enrolleeDataSet.DataSetName = "EnrolleesDataSet";
-            this.enrolleeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.btnClose.Location = new System.Drawing.Point(268, 393);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(96, 32);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Закрыть";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(166, 393);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(96, 32);
+            this.btnRemove.TabIndex = 4;
+            this.btnRemove.Text = "Изменить";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // gridEnrollee
             // 
@@ -65,13 +78,13 @@
             this.имяDataGridViewTextBoxColumn,
             this.отчествоDataGridViewTextBoxColumn});
             this.gridEnrollee.DataSource = this.enroleeBindingSource;
-            this.gridEnrollee.Location = new System.Drawing.Point(12, 0);
+            this.gridEnrollee.Location = new System.Drawing.Point(2, -1);
             this.gridEnrollee.MultiSelect = false;
             this.gridEnrollee.Name = "gridEnrollee";
             this.gridEnrollee.ReadOnly = true;
             this.gridEnrollee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridEnrollee.Size = new System.Drawing.Size(240, 404);
-            this.gridEnrollee.TabIndex = 0;
+            this.gridEnrollee.Size = new System.Drawing.Size(240, 373);
+            this.gridEnrollee.TabIndex = 3;
             // 
             // iDАбитуриентаDataGridViewTextBoxColumn
             // 
@@ -79,7 +92,6 @@
             this.iDАбитуриентаDataGridViewTextBoxColumn.HeaderText = "ID абитуриента";
             this.iDАбитуриентаDataGridViewTextBoxColumn.Name = "iDАбитуриентаDataGridViewTextBoxColumn";
             this.iDАбитуриентаDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDАбитуриентаDataGridViewTextBoxColumn.Visible = false;
             // 
             // фамилияDataGridViewTextBoxColumn
             // 
@@ -105,74 +117,48 @@
             // enroleeBindingSource
             // 
             this.enroleeBindingSource.DataMember = "Enrolee";
-            this.enroleeBindingSource.DataSource = this.enrolleeDataSet;
+            this.enroleeBindingSource.DataSource = this.enrolleesDataSet;
+            // 
+            // enrolleesDataSet
+            // 
+            this.enrolleesDataSet.DataSetName = "EnrolleesDataSet";
+            this.enrolleesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // enrAdapter
             // 
             this.enrAdapter.ClearBeforeFill = true;
             // 
-            // btnRemove
+            // frmGridEdit
             // 
-            this.btnRemove.Location = new System.Drawing.Point(191, 433);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(96, 32);
-            this.btnRemove.TabIndex = 1;
-            this.btnRemove.Text = "Удалить";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(293, 433);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(96, 32);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Закрыть";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // enrExamAdapter
-            // 
-            this.enrExamAdapter.ClearBeforeFill = true;
-            // 
-            // enrSpecAdapter
-            // 
-            this.enrSpecAdapter.ClearBeforeFill = true;
-            // 
-            // frmRemove
-            // 
-            this.AcceptButton = this.btnRemove;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 477);
+            this.ClientSize = new System.Drawing.Size(500, 437);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.gridEnrollee);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmRemove";
-            this.Text = "Удалить абитуриента";
-            this.Load += new System.EventHandler(this.frmRemove_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.enrolleeDataSet)).EndInit();
+            this.Name = "frmGridEdit";
+            this.Text = "Выбрать абитуриента";
+            this.Load += new System.EventHandler(this.frmGridEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridEnrollee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enroleeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enrolleesDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private EnrolleesDataSet enrolleeDataSet;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DataGridView gridEnrollee;
+        private EnrolleesDataSet enrolleesDataSet;
         private System.Windows.Forms.BindingSource enroleeBindingSource;
         private EnrolleesDataSetTableAdapters.EnroleeTableAdapter enrAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDАбитуриентаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn фамилияDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn имяDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn отчествоDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnClose;
-        private EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter enrExamAdapter;
-        private EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter enrSpecAdapter;
     }
 }

@@ -39,7 +39,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.enroleeDataSet = new CURS.EnrolleesDataSet();
+            this.enroleeAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeTableAdapter();
+            this.enroleeSpecAdapter = new CURS.EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter();
+            this.enrExamAdapter = new CURS.EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter();
+            this.examAdapter = new CURS.EnrolleesDataSetTableAdapters.ExamsTableAdapter();
+            this.specAdapter = new CURS.EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lstExam
@@ -76,6 +83,7 @@
             this.btnExam.TabIndex = 21;
             this.btnExam.Text = "Выбрать экзамены";
             this.btnExam.UseVisualStyleBackColor = true;
+            this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
             // 
             // txtO
             // 
@@ -86,6 +94,7 @@
             this.txtO.Size = new System.Drawing.Size(99, 25);
             this.txtO.TabIndex = 20;
             this.txtO.Tag = "Отчество";
+            this.txtO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtO_KeyPress);
             // 
             // txtI
             // 
@@ -96,6 +105,7 @@
             this.txtI.Size = new System.Drawing.Size(99, 25);
             this.txtI.TabIndex = 19;
             this.txtI.Tag = "Имя";
+            this.txtI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtI_KeyPress);
             // 
             // txtF
             // 
@@ -106,6 +116,7 @@
             this.txtF.Size = new System.Drawing.Size(99, 25);
             this.txtF.TabIndex = 18;
             this.txtF.Tag = "Фамилия";
+            this.txtF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtF_KeyPress);
             // 
             // btnSpec
             // 
@@ -116,6 +127,7 @@
             this.btnSpec.TabIndex = 17;
             this.btnSpec.Text = "Выбрать специальности";
             this.btnSpec.UseVisualStyleBackColor = true;
+            this.btnSpec.Click += new System.EventHandler(this.btnSpec_Click);
             // 
             // label3
             // 
@@ -158,19 +170,45 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnAdd
+            // btnEdit
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(154, 330);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(82, 29);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Добавить";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEdit.Location = new System.Drawing.Point(154, 330);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(82, 29);
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Text = "Изменить";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // enroleeDataSet
+            // 
+            this.enroleeDataSet.DataSetName = "EnrolleesDataSet";
+            this.enroleeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // enroleeAdapter
+            // 
+            this.enroleeAdapter.ClearBeforeFill = true;
+            // 
+            // enroleeSpecAdapter
+            // 
+            this.enroleeSpecAdapter.ClearBeforeFill = true;
+            // 
+            // enrExamAdapter
+            // 
+            this.enrExamAdapter.ClearBeforeFill = true;
+            // 
+            // examAdapter
+            // 
+            this.examAdapter.ClearBeforeFill = true;
+            // 
+            // specAdapter
+            // 
+            this.specAdapter.ClearBeforeFill = true;
             // 
             // frmEdit
             // 
-            this.AcceptButton = this.btnAdd;
+            this.AcceptButton = this.btnEdit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 366);
@@ -185,11 +223,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmEdit";
             this.Text = "Изменить абитуриента";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEdit_FormClosed);
+            this.Load += new System.EventHandler(this.frmEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.enroleeDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +249,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
+        private EnrolleesDataSet enroleeDataSet;
+        private EnrolleesDataSetTableAdapters.EnroleeTableAdapter enroleeAdapter;
+        private EnrolleesDataSetTableAdapters.EnroleeSpecialityTableAdapter enroleeSpecAdapter;
+        private EnrolleesDataSetTableAdapters.EnrolleeExamsTableAdapter enrExamAdapter;
+        private EnrolleesDataSetTableAdapters.ExamsTableAdapter examAdapter;
+        private EnrolleesDataSetTableAdapters.SpecialitiesTableAdapter specAdapter;
     }
 }
