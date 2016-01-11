@@ -10,6 +10,7 @@ namespace CURS
     {
         struct SortedBall
         {
+            public bool wasAdded;
             public int ball;
             public int id;
             public int prior;
@@ -56,7 +57,6 @@ namespace CURS
         List<List<int>> enrBall = new List<List<int>>();
         List<bool> enrUsed = new List<bool>();
         List<List<int>> enrSpec = new List<List<int>>();
-        List<List<int>> resList = new List<List<int>>();
 
         public frmList()
         {
@@ -146,6 +146,7 @@ namespace CURS
                     b.ball = enrBall[id - 1][idSpec - 1];
                     b.id = id - 1;
                     b.prior = Convert.ToInt32(enrRow[2].ToString());
+                    b.wasAdded = false;
                     curSpecBalls.Add(b);
                 }
 
@@ -156,101 +157,58 @@ namespace CURS
 
             int curPrior = 0;
             int resEnr = enrCount;
-            resList.AddRange(Enumerable.Repeat(new List<int>(), specCount));
+
             while (resEnr > 0)
             {
                 bool wasAdded = false;
-                List<int> need = new List<int>();
-                List<int> other = new List<int>();
 
-                for (int i = 0; i < enrCount; ++i)
+                for (int i = 0; i < specCount && !wasAdded; ++i)
                 {
-                    if (!enrUsed[i])
+                    if (rest[i] > 0)
                     {
-                        if (enrSpec[i].Count > curPrior)
+                        int curCount = 0, prevCount = rest[i];
+                        for (int j = 0; j < specSorted[i].Count && !wasAdded && curCount < prevCount; ++j)
                         {
-                            int idSpec = enrSpec[i][curPrior];
-                            if (rest[idSpec] > 0)
+                            if (!specSorted[i][j].wasAdded)
                             {
-                               bool found = false;
-                               int m = rest[idSpec];
-                               if (m > specSorted[idSpec].Count)
-                               {
-                                   m = specSorted[idSpec].Count;
-                               }
-
-                               for (int ii = 0; ii < m; ++ii )
-                               {
-                                   if (specSorted[idSpec][ii].id == i)
-                                   {
-                                       found = true;
-                                       break;
-                                   }
-                               }
-
-                               if (found)
-                               {
-                                   bool reallyNeed = true;
-                                   for (int ii = 0; ii < curPrior; ++ii )
-                                   {
-                                       if (rest[enrSpec[i][ii]] != 0)
-                                       {
-                                           reallyNeed = false;
-                                           break;
-                                       }
-                                   }
-
-                                   if (reallyNeed)
-                                   {
-                                       need.Add(i);
-                                   }
-                                   else
-                                   {
-                                       other.Add(i);
-                                   }
-                               }
+                                curCount++;
+                            }
+                            if (specSorted[i][j].prior == curPrior && !specSorted[i][j].wasAdded)
+                            {
+                                rest[i]--;
+                                resEnr--;
+                                int index = specSorted[i][j].id;
+                                bool needInc = false;
+                                for (int jj = 0; jj < enrSpec[index].Count; ++jj)
+                                {
+                                    for (int k = 0; k < specSorted[enrSpec[index][jj]].Count; ++k)
+                                    {
+                                        int pr = specSorted[enrSpec[index][jj]][k].prior;
+                                        if (specSorted[enrSpec[index][jj]][k].id == index && (curPrior < pr))
+                                        {
+                                            if (specSorted[enrSpec[index][jj]][k].wasAdded)
+                                            {
+                                                rest[enrSpec[index][jj]]++;
+                                                needInc = true;
+                                            }
+                                            specSorted[enrSpec[index][jj]].RemoveAt(k);
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (needInc)
+                                {
+                                    resEnr++;
+                                }
+                                var rr = specSorted[i][j];
+                                rr.wasAdded = true;
+                                specSorted[i][j] = rr;
+                                wasAdded = true;
                             }
                         }
                     }
                 }
-
-                int index = -1;
-                if (need.Count > 0)
-                {
-                    index = need[0];
-                }
-                else
-                {
-                    if (other.Count > 0)
-                    {
-                        index = other[0];
-                    }
-                }
-
-                if (index != -1)
-                {
-                    int idSpec = enrSpec[index][curPrior];
-                    rest[idSpec]--;
-                    List<int> list = new List<int>(resList[idSpec]);
-                    resList[idSpec] = new List<int>();
-                    list.Add(index + 1);
-                    resList[idSpec] = list;
-                    resEnr--;
-                    enrUsed[index] = true;
-                    for (int j = 0; j < enrSpec[index].Count; ++j)
-                    {
-                        for (int k = 0; k < specSorted[enrSpec[index][j]].Count; ++k)
-                        {
-                            if (specSorted[enrSpec[index][j]][k].id == index)
-                            {
-                                specSorted[enrSpec[index][j]].RemoveAt(k);
-                                break;
-                            }
-                        }
-                    }
-                    wasAdded = true;
-                }
-
+                
                 if (!wasAdded)
                 {
                     curPrior++;
@@ -287,15 +245,18 @@ namespace CURS
 
             gridEnrollee.Rows.Clear();
             int id = Convert.ToInt32(gridSpec.SelectedRows[0].Cells[0].Value.ToString());
-            if (resList.Count == 0) return;
-            for(int i = 0; i < resList[id - 1].Count; ++i)
+            if (specSorted.Count == 0) return;
+            for(int i = 0; i < specSorted[id - 1].Count; ++i)
             {
-                gridEnrollee.Rows.Add();
-                var enr = enrolleeDataSet.Enrolee.FindByID_абитуриента(resList[id - 1][i]);
-                gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[0].Value = enr[1].ToString();
-                gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[1].Value = enr[2].ToString();
-                gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[2].Value = enr[3].ToString();
-                gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[3].Value = enrBall[resList[id - 1][i] - 1][id - 1].ToString();
+                if (specSorted[id - 1][i].wasAdded)
+                {
+                    gridEnrollee.Rows.Add();
+                    var enr = enrolleeDataSet.Enrolee.FindByID_абитуриента(specSorted[id - 1][i].id + 1);
+                    gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[0].Value = enr[1].ToString();
+                    gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[1].Value = enr[2].ToString();
+                    gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[2].Value = enr[3].ToString();
+                    gridEnrollee.Rows[gridEnrollee.Rows.Count - 1].Cells[3].Value = enrBall[specSorted[id - 1][i].id][id - 1].ToString();
+                }
             }
         }
     }
